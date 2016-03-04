@@ -1,0 +1,8 @@
+.h-focus-item {
+    width: 16% !important;
+}
+
+.icon-alumnia {
+  width: 80px;
+  height: 80px;
+  background-image: url(../../img/svgs/event_type_alumnia.svg); }
