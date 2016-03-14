@@ -1,7 +1,8 @@
 <?php
-$dsn="mysql:dbname=aasfDB";
+$dsn="mysql:host=localhost;dbname=aasfdb";
+$host="localhost";
 $username="root";
-$password="";
+$password="gPjMCPv6";
 try
 {
 	$conn=new PDO($dsn,$username,$password);
@@ -9,7 +10,7 @@ try
 }
 	catch(PDOException $e)
 	{
-echo "Connection cannot be established";
+echo $e;
 
 	}
 

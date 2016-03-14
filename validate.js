@@ -174,7 +174,7 @@ else if(p=="")
 	}
 	else if(zz==0)
 	{
-	alert("Username not already taken");
+	alert("Email already taken");
 	errormode("usrname");
 	return false;
 	//_("usrname").focus();
@@ -186,7 +186,7 @@ else if(p=="")
 		return false;
 	}
 	
-	else return false;
+	else return true;
 
 }
 function errormode(vt)

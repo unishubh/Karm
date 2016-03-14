@@ -1,4 +1,9 @@
 <?php
+session_start();
+//if(isset($_SESSION['id']))
+//{
+//echo '<script>window.location.href="kamryo.com/profile.php"<script>';
+//}
 include 'header.php' ;
 include 'connect.php';
 ?>
@@ -154,7 +159,7 @@ body {
 							<div class="col-lg-12">
 								<form id="login-form" action="fileprocess.php" method="post" role="form" style="display: block;">
 									<div class="form-group">
-										<input type="text" name="username" id="usrname" tabindex="1" class="form-control" placeholder="Username" value="">
+										<input type="text" name="username" id="usrname" tabindex="1" class="form-control" placeholder="Email-Id" value="">
 									</div>
 									<div class="form-group">
 										<input type="password" name="password" id="psw" tabindex="2" class="form-control" placeholder="Password">

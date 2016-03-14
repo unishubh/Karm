@@ -69,7 +69,7 @@ display: inline-block;
                        <!-- profile header starts here -->
             <div class="row-fluid profile-header" style="background-color: #11b9f6;">
                 <div class="profile-container">
-                    <div class="col-md-8 col-sm-12 profile-detail">
+                    <div class="col-md-8 col-sm-12 profile-detail" style="padding: 0px;">
                         
                         <div class="col-xs-12 col-md-4" id='searchHeader'>
 <br>
@@ -78,11 +78,11 @@ display: inline-block;
                             
                           
                             <!-- File upload-->
-                            <form method="Post" action="pu.php" id="mf" enctype="multipart/form-data">
-                            <div class="fileUpload btn btn-primary">
-    <span><i class="fa fa-upload"></i> &nbsp; Upload image</span>
-    <input type="file" name="pie" class="upload" onchange="fn()" />
-</div>
+                            <form method="Post" style="margin-left: 10px;" action="pu.php" id="mf" enctype="multipart/form-data">
+                            <div class="fileUpload btn btn-sm btn-default">
+                                <span><i class="fa fa-upload"></i> &nbsp; Upload image</span>
+                                <input type="file" name="pie" class="upload" onchange="fn()" />
+                            </div>
 </form>
 <script>
 function fn()
@@ -119,11 +119,11 @@ function fn()
                           <ul class="nav nav-tabs" role="tablist">
                               <li role="presentation" class="active"  >
                                 <a href="#newsfeed" onclick="nf()" aria-controls="activity" role="tab" data-toggle="tab">
-                                    <span>Events</span>
+                                    <span>Inspire Me</span>
                                 </a></li>
                                 <li role="presentation">
                                   <a href="#about"  onclick="abt();"  aria-controls="attendies" role="tab" data-toggle="tab">
-                                      <span>News Feed</span>
+                                      <span>My Impact</span>
                                   </a>
                               </li>
                               <li role="presentation">
@@ -138,14 +138,14 @@ function fn()
                         <div role="tabpanel" class="tab-pane active" id="newsfeed">
                             <div class="container">
          
-          <div class="page-header">
+     <!--     <div class="page-header">
             <h2>Top Events</h2>
-          </div>
+          </div>-->
           <div class="row-fluid" >
             <table class="thumbnails" >
-    <tr style="padding: 10px;">
+    <tr style="padding: 10px;" class="row">
               <?php
-            $q="SELECT users.name AS uname,event.name AS fname,eid,cause,ngo,description,url,location,sdate,edate FROM users JOIN event ON users.id=uid ORDER BY eid DESC LIMIT 6 ";
+            $q="SELECT users.name AS uname,event.name AS fname,eid,cause,ngo,description,url,location,sdate,edate FROM users JOIN event ON users.id=uid ORDER BY eid  ";
            $query=$conn->prepare($q);
           $i=0;
             $query->execute();
@@ -154,14 +154,14 @@ function fn()
               while($d)
               {
           if($i==3){
-          echo '</tr><tr>';
+          echo '</tr><tr class="row">';
           $i=0;
           }
           $i++;
             $vid=$d['url'];
             $ty=$d['eid'];
                  ?>
-              <td class="span4" style="padding: 10px;">
+              <td class="col-md-4" style="padding: 10px;">
             
                
                 <div class="thumbnail" id = "amon" >
@@ -191,7 +191,8 @@ function fn()
                     <b style="font-size: 14px;">
                       <?php 
                       
-                      echo $d['sdate'].' to '.$d['sdate'];
+                      echo $d['sdate'].' to '.$d['sdate'].'<br>';
+		      echo 'City: '.$d['location'];
 
                       ?>
                       </b>
@@ -241,8 +242,9 @@ function fn()
                               while($d)
                               {
                                 //echo '1';
+                             $x= $d['eid'];
                           if($d['creator']==0)
-                                    echo '<a href="#" class="list-group-item"><i class="fa fa-arrow-circle-right"></i>&nbsp;
+                                    echo '<a href="locate.php?event='.$x.'" class="list-group-item"><i class="fa fa-arrow-circle-right"></i>&nbsp;
             '.$_SESSION["name"].' is going to '.$d["name"].'</a><br>'; 
                                   else 
                                     echo '<a href="#" class="list-group-item"><i class="fa fa-arrow-circle-right"></i>&nbsp;

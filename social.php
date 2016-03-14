@@ -7,12 +7,12 @@ $e=$_GET['email'];
 $p=$_GET['pic'];
 $fbid=$_GET['fbid'];
 //echo 'image:'.$p;
-//echo 
+//echo $fbid.'<br>'; 
 //echo 0;
 $s=$_GET['sex'];
-$_SESSION['name']=$n;
-	$_SESSION['user']=$e;
-	$_SESSION['sex']=$s;
+//$_SESSION['name']=$n;
+//	$_SESSION['user']=$e;
+//	$_SESSION['sex']=$s;
 	//$_SESSION['age']=$d['age'];
 	$q="SELECT * from users WHERE fbid='$fbid'";
 	$query=$conn->prepare($q);
@@ -20,15 +20,15 @@ $_SESSION['name']=$n;
 	$query->execute(array(':name' => "Jimbo"));
 $r=$query->fetch();
 if($r)
-echo 'id = '.$r['fbid'].' fbid rcvd is'.$fbid;
+echo 'name = '.$r['name'].' fbid rcvd is'.$fbid;
 if(!$r)
 {
-	//echo 'Number of rows is 0';
-	echo ' fbid rcvd is'.$fbid;
+	echo 'Number of rows is 0';
+	//echo ' fbid rcvd is'.$fbid;
 	$q="INSERT INTO users (name,email,sex,image,fbid)VALUES ('$n','$e','$s','$p','$fbid')";
 	$query=$conn->prepare($q);
 	$query->execute();
-	
+	echo "Updated";	
 
     //
     
@@ -36,18 +36,27 @@ if(!$r)
 	//echo 1;
 
 }
-if($e!="")
-$q="SELECT * FROM users WHERE name='$n' AND email='$e' AND sex='$s' ";
-else
-$q="SELECT * FROM users WHERE name='$n' AND  sex='$s' ";
-
+//if($e!="undefined")
+//$q="SELECT * FROM users WHERE fbid='$fbid' ";
+//else
+$q="SELECT * FROM users WHERE fbid='$fbid' ";
 	$query=$conn->prepare($q);
 	$query->execute();
     $query->execute(array(':name' => "Jimbo"));
     $d=$query->fetch();
+if(isset($d['id']))
+    echo 'to'.$d['id'];
+else 
+echo 'Nont found';
+ 
+//echo 'Shubh';
+    $_SESSION['name']=$d['name'];
+   $_SESSION['sex']=$d['sex'];
+
     $_SESSION['id']=$d['id'];
     $_SESSION['image']=$d['image'];
     //echo $d['id'];
-echo 1;
+//echo $_SESSION['id'];
+//echo '101';
 
  ?>

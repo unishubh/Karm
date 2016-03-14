@@ -371,17 +371,38 @@ else
   }
 }
 }
+
+
 $lo=$_POST['location'];
 $d=$_POST['description'];
 //$ngo=$_POST['ngo'];
 $adder=$_SESSION['id'];
-$sql="INSERT INTO event (uid,name,cause,ngo,description,url,sdate,edate,location,address,stime,etime) VALUES ('$adder','$n','$c','$ngo','$d','$l','$sdate','$edate','$lo','$add','$stime','$etime')";
+try{
+$sql="INSERT INTO event (uid,name,cause,ngo,description,url,sdate,edate,location,address,stime,etime) VALUES (:adder,:n,:c,:ngo,:d,:l,:sdate,:edate,:lo,:add,:stime,:etime)";
 
 $query=$conn->prepare($sql);
+$query->bindParam(':adder',$adder);
+$query->bindParam(':n',$n);
+$query->bindParam(':c',$c);
+$query->bindParam(':ngo',$ngo);
+$query->bindParam(':d',$d);
+$query->bindParam(':l',$l);
+$query->bindParam(':sdate',$sdate);
+$query->bindParam(':edate',$edate);
+$query->bindParam(':lo',$lo);
+$query->bindParam(':add',$add);
+$query->bindParam(':stime',$stime);
+$query->bindParam(':etime',$etime);
 $query->execute();
+}
+catch(PDOException $e)
+{
+echo $e;
+}
 $sql="INSERT INTO eactivity (eid,uid,creator) SELECT eid,'$adder',1 FROM event WHERE name='$n'";
 $query=$conn->prepare($sql);
 $query->execute();
+
 $sql="UPDATE districts set hits=hits +1 WHERE district='$lo'";
 
 $query=$conn->prepare($sql);
@@ -395,7 +416,8 @@ $f=$d['eid'];
 echo $f;
 echo "<script>alert('Added');
 console.log('a');
-window.location.href='locate.php?event=".$f."';</script>";
+window.location.href='locate.php?event=".$f."';
+</script>";
 //echo "<script>alert('Added');</script>";
 }
 ?>

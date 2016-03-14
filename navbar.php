@@ -182,6 +182,8 @@ $(document).ready(function(){
 						<nav class="navmenu">
 							<ul>
 
+								 <li class="scroll_btn"><a href="http://karmyoblog.wordpress.com" >Stories</a></li>
+
 
 								 
 								<!--   <li class="scroll_btn"><a href="#about" >About Us</a></li>  -->
@@ -192,7 +194,7 @@ $(document).ready(function(){
 
 								<li class="scroll_btn"><a href="login1.php" >Login</a></li>
 								<!-- <li class="scroll_btn"><a href="signup.php" >Sign Up</a></li> -->
-								<li class="scroll_btn"><a href="#" >Stories</a></li>
+							<!--	<li class="scroll_btn"><a href="#" >Stories</a></li>-->
 								
 
 								<?php }
@@ -253,7 +255,8 @@ $(document).ready(function(){
 								
 								if(isset($_SESSION['id'])) { ?>
 								<!-- <li class="scroll_btn"><a href="logout.php" >Logout</a></li> -->
-								<li class="scroll_btn">
+								
+							<li class="scroll_btn">
 						        
 						        <div class = "btn-group">
    								
@@ -281,7 +284,7 @@ $(document).ready(function(){
 						          
 						          
 						         
-						        
+						       
 
      
                                                       
