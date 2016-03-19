@@ -63,7 +63,7 @@ include 'navbar.php' ;
       <div class="jumbotron" style="padding:0px; border-bottom:  3px solid rgb(189, 193, 203); height: 500px; background-color: #f3f3f9;">
 
         <h2 style="padding: 12px; padding-bottom: 1px; text-align: left; color: rgb(51, 51, 51); "><?php echo $name; ?></h2>
-       <div style="padding: 12px; padding-top: 1px"><div class="fb-share-button" data-href="aasf.in/white/locate.php?event=<?php echo $eid; ?>" data-layout="button_count"></div>
+       <div style="padding: 12px; padding-top: 1px"><div class="fb-share-button" data-href="http://karmyo.com/locate.php?event=<?php echo $eid; ?>" data-layout="button_count"></div>
        <br>
        </div>
        <?php
@@ -172,6 +172,8 @@ include 'navbar.php' ;
         </div>
         <p style="padding: 12px; font-size: 22px; text-align: left; color: rgb(51, 51, 51);  border-bottom: 2px solid rgb(0, 175, 239);">Social Impact</p>
         <p style="padding-left: 10px; padding-right: 10px; font-size: 18px;"><?php echo $cause;?></p>
+   <p style="padding: 12px; font-size: 22px; text-align: left; color: rgb(51, 51, 51);  border-bottom: 2px solid rgb(0, 175, 239);">Venue</p>
+        <p style="padding-left: 10px; padding-right: 10px; font-size: 18px;"><?php echo $loca;?></p>
         <p style="padding: 12px; font-size: 22px; text-align: left; color: rgb(51, 51, 51);  border-bottom: 2px solid rgb(0, 175, 239);">Contact</p>
         <?php 
         $q="SELECT * FROM users where id='$adder'";

@@ -34,7 +34,7 @@ if($r==1)
   $_SESSION['image']=$d['image'];}
   $_SESSION['work']=$d['work'];
   //echo $_SESSION['image'];
-  echo '<script>alert("Welcome");
+  echo '<script>
   window.location.href="profile.php";
   </script>';
 }

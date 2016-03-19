@@ -178,7 +178,7 @@ function fn()
        {
        ?>
                   <img scrolling="no" style="height: 230px; width:100%"
-      src=<?php echo $vid; ?>>
+      src="<?php echo $vid; ?>">
       
       <?php 
       }
